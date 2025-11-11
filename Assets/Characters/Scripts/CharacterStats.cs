@@ -26,6 +26,11 @@ public class CharacterStats : MonoBehaviour
         }
 
         health -= damage;
+
+        if (health <= 0)
+        {
+            Death();
+        }
     }
 
     public void AddHitStun(float stunSeconds)
@@ -44,7 +49,7 @@ public class CharacterStats : MonoBehaviour
         if (stunDuration > 0)
         {
             stunDuration -= Time.deltaTime;
-            GetComponent<SpriteRenderer>().color = Color.blue;
+            GetComponent<SpriteRenderer>().color = new Color(.5f, .5f, 1f, 1f);
         }
         
         if (cooldown <= 0 && stunDuration <= 0)
@@ -85,5 +90,10 @@ public class CharacterStats : MonoBehaviour
         }
 
         Gizmos.DrawWireCube(transform.position + modifiedOffset , attack.GetGizmoData().size);
+    }
+
+    void Death()
+    {
+        Destroy(gameObject);
     }
 }

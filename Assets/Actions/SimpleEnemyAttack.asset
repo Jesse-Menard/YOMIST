@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e0456bd0e7eada4aa2fb3a6cb074d33, type: 3}
-  m_Name: SimplePlayerAttack
+  m_Name: SimpleEnemyAttack
   m_EditorClassIdentifier: Assembly-CSharp::AttackBase
-  damage: 4
-  hitStun: 0.5
-  cooldown: 0.5
+  damage: 5
+  hitStun: 0.4
+  cooldown: 1
   knockbackAngle: {x: 1, y: 1}
-  knockbackForce: 9
+  knockbackForce: 4
   hitBoxSize: {x: 2, y: 2}
   hitBoxOffset: {x: 1, y: 0.5, z: 0}

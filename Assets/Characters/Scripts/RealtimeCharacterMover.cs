@@ -17,9 +17,6 @@ public class RealtimeCharacterMover : MonoBehaviour
     [SerializeField]
     BoxCollider2D groundCollider;
 
-    [SerializeField]
-    LayerMask groundLayerMask;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -48,7 +45,7 @@ public class RealtimeCharacterMover : MonoBehaviour
     bool IsGrounded()
     {
         Vector3 position = groundCollider.transform.position;
-        Collider2D isGroundedCollider = Physics2D.OverlapBox(position, groundCollider.size, 0, groundLayerMask);
+        Collider2D isGroundedCollider = Physics2D.OverlapBox(position, groundCollider.size, 0, LayerMask.GetMask("Ground"));
 
         return isGroundedCollider;
     }

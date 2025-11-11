@@ -39,7 +39,7 @@ public class AttackBase : ScriptableObject
         }
 
         bool isPlayer = owner.CompareTag("Player");
-        LayerMask attackMask = isPlayer ? LayerMask.GetMask("Player") : LayerMask.GetMask("Player");
+        LayerMask attackMask = isPlayer ? LayerMask.GetMask("Enemy") : LayerMask.GetMask("Player");
         
         Collider2D[] hitTargets = Physics2D.OverlapBoxAll(position, hitBoxSize, 0, attackMask);
 
