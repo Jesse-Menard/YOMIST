@@ -1,3 +1,5 @@
+using NUnit.Framework.Internal;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class RealtimeCharacterMover : MonoBehaviour
@@ -31,6 +33,8 @@ public class RealtimeCharacterMover : MonoBehaviour
 
             Mathf.Clamp(rb.linearVelocityX, -maxSpeed, maxSpeed);
         }
+
+        UpdateIsFacingRight(xDirection);
     }
 
     public void Jump()
@@ -47,5 +51,17 @@ public class RealtimeCharacterMover : MonoBehaviour
         Collider2D isGroundedCollider = Physics2D.OverlapBox(position, groundCollider.size, 0, groundLayerMask);
 
         return isGroundedCollider;
+    }
+
+    void UpdateIsFacingRight(float xValue)
+    {
+        if (xValue > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if (xValue < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 }
