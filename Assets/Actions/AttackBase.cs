@@ -1,8 +1,5 @@
 using System;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.U2D;
-using UnityEngine.UIElements;
 
 [CreateAssetMenu(fileName = "SimplePlayerAttack", menuName = "Attack Data/SimplePlayerAttack")]
 [Serializable]

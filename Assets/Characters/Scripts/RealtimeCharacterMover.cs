@@ -1,5 +1,3 @@
-using NUnit.Framework.Internal;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class RealtimeCharacterMover : MonoBehaviour
