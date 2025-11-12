@@ -11,6 +11,10 @@ public class CharacterStats : MonoBehaviour
 
     [SerializeField]
     AttackBase attack;
+    private void Awake()
+    {
+        maxHealth = health;
+    }
 
     private void FixedUpdate()
     {
@@ -49,7 +53,7 @@ public class CharacterStats : MonoBehaviour
         if (stunDuration > 0)
         {
             stunDuration -= Time.deltaTime;
-            GetComponent<SpriteRenderer>().color = new Color(.5f, .5f, 1f, 1f);
+            GetComponent<SpriteRenderer>().color = new Color(0f, .5f, 1f, 1f);
         }
         
         if (cooldown <= 0 && stunDuration <= 0)
@@ -94,6 +98,19 @@ public class CharacterStats : MonoBehaviour
 
     void Death()
     {
-        Destroy(gameObject);
+        if (CompareTag("Player"))
+        {
+            /// TODO: Replace with proper GameOver screen
+            Application.Quit();
+        }
+        else
+        {
+            FindFirstObjectByType<EnemyManager>().AddEnemyToQueue(gameObject);
+        }
+    }
+
+    public void ResetHealth()
+    {
+        health = maxHealth;
     }
 }

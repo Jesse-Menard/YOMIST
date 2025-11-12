@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc849f257ae7664a9b0d1327394e64b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
-  health: 50
+  health: 30
   attack: {fileID: 11400000, guid: d2ae37763edbdd4468c5f1b301be04f6, type: 2}
 --- !u!114 &2207047998170737335
 MonoBehaviour:
@@ -255,5 +255,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RealtimeCharacterMover
   acceleration: 8
   maxSpeed: 4
-  jumpHeight: 7
+  jumpHeight: 12.5
   groundCollider: {fileID: 561786608174406835}

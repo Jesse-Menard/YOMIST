@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0456bd0e7eada4aa2fb3a6cb074d33, type: 3}
   m_Name: SimpleEnemyAttack
   m_EditorClassIdentifier: Assembly-CSharp::AttackBase
-  damage: 5
-  hitStun: 0.4
+  damage: 3
+  hitStun: 0.2
   cooldown: 1
   knockbackAngle: {x: 1, y: 1}
   knockbackForce: 4
