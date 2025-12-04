@@ -1,0 +1,23 @@
+using UnityEditorInternal;
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{
+    static GameManager Instance;
+
+    private void Awake()
+    {
+        
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
