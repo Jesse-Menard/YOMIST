@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class ActionManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
-    public static ActionManager Instance;
+    public CharacterStats activePlayerStats;
 
-    public ActionBaseClass actionToExecute;
+    public static PlayerManager Instance;
 
     private void Awake()
     {
@@ -14,12 +14,14 @@ public class ActionManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-    
+
         Instance = this;
     }
 
-    public void InvokeAction()
+    private void Start()
     {
-        actionToExecute.InvokeAction(PlayerManager.Instance.activePlayerStats);
+        // To be replaced with multiplayer functionality
+        activePlayerStats = FindFirstObjectByType<CharacterStats>();
     }
+
 }

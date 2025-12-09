@@ -8,12 +8,11 @@ public class ActionButton : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Button>().onClick.AddListener(InvokeAction);
+        GetComponent<Button>().onClick.AddListener(ActionSelected);
     }
 
-    void InvokeAction()
+    public void ActionSelected()
     {
-        /// TODO:
-        // action.InvokeAction();
+        ActionManager.Instance.actionToExecute = action;
     }
 }
