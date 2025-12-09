@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e0456bd0e7eada4aa2fb3a6cb074d33, type: 3}
+  m_Script: {fileID: 11500000, guid: c89f7c3afaf6c99488de678963e4ea13, type: 3}
   m_Name: SimpleEnemyAttack
   m_EditorClassIdentifier: Assembly-CSharp::AttackBase
-  endLagFrames: 40
-  damage: 3
-  hitStunFrames: 20
-  knockbackAngle: {x: 1, y: 1}
-  knockbackForce: 4
-  hitBoxSize: {x: 2, y: 2}
-  hitBoxOffset: {x: 1, y: 0.5, z: 0}
+  endLagFrames: 0
+  activeFrames: 0
+  startupFrames: 0
+  damage: 0
+  hitStunFrames: 0
+  knockbackAngle: {x: 0, y: 0}
+  knockbackForce: 0
+  hitBoxSize: {x: 0, y: 0}
+  hitBoxOffset: {x: 0, y: 0, z: 0}

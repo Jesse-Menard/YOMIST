@@ -15,7 +15,7 @@ public class CharacterStats : MonoBehaviour
     private void Awake()
     {
         maxHealth = health;
-        GameManager.FrameTick += TickCountersDownEvent;
+        FrameManager.FrameTick += TickCountersDownEvent;
     }
 
     private void FixedUpdate()
@@ -86,7 +86,7 @@ public class CharacterStats : MonoBehaviour
 
     public void CallOnlyAttack()
     {
-        attack.Attack(this);
+        attack.InvokeAction(this);
     }
 
     private void OnDrawGizmos()

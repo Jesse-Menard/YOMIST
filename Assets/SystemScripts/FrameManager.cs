@@ -3,13 +3,13 @@ using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
-    public static GameManager Instance;
-
+public class FrameManager : MonoBehaviour
+{    
     public static event EventHandler FrameTick;
-
     int framesToSkip = 0;
+
+    public static FrameManager Instance;
+
     private void Awake()
     {
         // If another instance already exists destroy this one
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+    
         Instance = this;
     }
 
