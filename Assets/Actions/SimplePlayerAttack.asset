@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0456bd0e7eada4aa2fb3a6cb074d33, type: 3}
   m_Name: SimplePlayerAttack
   m_EditorClassIdentifier: Assembly-CSharp::AttackBase
+  endLagFrames: 40
   damage: 6
-  hitStun: 0.5
-  cooldown: 0.5
+  hitStunFrames: 40
   knockbackAngle: {x: 1, y: 1}
   knockbackForce: 10
   hitBoxSize: {x: 2, y: 2}

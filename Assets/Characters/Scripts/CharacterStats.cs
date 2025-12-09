@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
@@ -5,14 +6,15 @@ public class CharacterStats : MonoBehaviour
     [SerializeField]
     float health = 100;
     float maxHealth;
-    float stunDuration = 0;
-    float cooldown = 0;
+    int hitStunFrames = 0;
+    int endLagFrames = 0;
 
     [SerializeField]
     AttackBase attack;
     private void Awake()
     {
         maxHealth = health;
+        GameManager.FrameTick += TickCountersDownEvent;
     }
 
     private void FixedUpdate()
@@ -36,26 +38,31 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    public void AddHitStun(float stunSeconds)
+    public void AddHitStun(int stunFrames)
     {
-        if (stunDuration < stunSeconds)
-            stunDuration = stunSeconds;
+        if (hitStunFrames < stunFrames)
+            hitStunFrames = stunFrames;
+    }
+
+    void TickCountersDownEvent(object sender, EventArgs e)
+    {
+        TickCountersDown();
     }
 
     void TickCountersDown()
     {
-        if (cooldown > 0)
+        if (endLagFrames > 0)
         {
-            cooldown-= Time.deltaTime;
+            endLagFrames--;
             GetComponent<SpriteRenderer>().color = Color.orange;
         }
-        if (stunDuration > 0)
+        if (hitStunFrames > 0)
         {
-            stunDuration -= Time.deltaTime;
+            hitStunFrames--;
             GetComponent<SpriteRenderer>().color = new Color(0f, .5f, 1f, 1f);
         }
         
-        if (cooldown <= 0 && stunDuration <= 0)
+        if (endLagFrames <= 0 && hitStunFrames <= 0)
         {
             GetComponent<SpriteRenderer>().color = Color.white;
         }
@@ -63,22 +70,22 @@ public class CharacterStats : MonoBehaviour
 
     public bool IsInHitStun()
     {
-        return stunDuration > 0;
+        return hitStunFrames > 0;
     }
 
-    public void AddCooldown(float cooldownSeconds)
+    public void AddEndLag(int framesToAdd)
     {
-        cooldown = cooldownSeconds;
+        endLagFrames = framesToAdd;
     }
 
     public bool IsOnCooldown()
     {
-        return cooldown > 0;
+        return endLagFrames > 0;
     }
 
     public void CallOnlyAttack()
     {
-        attack.Attack(gameObject);
+        attack.Attack(this);
     }
 
     private void OnDrawGizmos()

@@ -3,14 +3,12 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "SimplePlayerAttack", menuName = "Attack Data/SimplePlayerAttack")]
 [Serializable]
-public class AttackBase : ScriptableObject
+public class AttackBase : ActionBaseClass
 {
     [SerializeField]
     float damage;
     [SerializeField]
-    float hitStun;
-    [SerializeField]
-    float cooldown;
+    int hitStunFrames;
     [SerializeField]
     Vector2 knockbackAngle;
     [SerializeField]
@@ -20,7 +18,7 @@ public class AttackBase : ScriptableObject
     [SerializeField]
     Vector3 hitBoxOffset;
 
-    public void Attack(GameObject owner)
+    public void Attack(CharacterStats owner)
     {
         Debug.Log("ATTACK!");
 
@@ -47,15 +45,20 @@ public class AttackBase : ScriptableObject
     
             hitTarget.GetComponent<CharacterStats>().Damage(damage);
             hitTarget.GetComponent<Rigidbody2D>().AddForce(modifiedKnockbackAngle.normalized * knockbackForce, ForceMode2D.Impulse);
-            hitTarget.GetComponent<CharacterStats>().AddHitStun(hitStun);
+            hitTarget.GetComponent<CharacterStats>().AddHitStun(hitStunFrames);
         }
 
-        owner.GetComponent<CharacterStats>().AddCooldown(cooldown);
+        owner.GetComponent<CharacterStats>().AddEndLag(endLagFrames);
     }
 
     public (Vector3 offset, Vector3 size) GetGizmoData()
     {
         Vector3 size = new Vector3(hitBoxSize.x, hitBoxSize.y, 1.0f);
         return (hitBoxOffset, size);
+    }
+
+    public override void InvokeAction()
+    {
+        throw new NotImplementedException();
     }
 }

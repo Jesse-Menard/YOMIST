@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class ActionBaseClass : MonoBehaviour
+public abstract class ActionBaseClass : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    protected int endLagFrames;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract void InvokeAction();
 }
