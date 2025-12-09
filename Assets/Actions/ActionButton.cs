@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class ActionButton : MonoBehaviour
 {
-    ActionBaseClass action;
+    [SerializeField]
+    public ActionBaseClass action;
 
     void Start()
     {
@@ -13,6 +14,12 @@ public class ActionButton : MonoBehaviour
 
     public void ActionSelected()
     {
+        if (action == null)
+        {
+            Debug.LogError("ActionButton: " + name + " has a null action!!");
+            return;
+        }
+
         ActionManager.Instance.actionToExecute = action;
     }
 }

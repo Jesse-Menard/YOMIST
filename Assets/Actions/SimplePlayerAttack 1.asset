@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c89f7c3afaf6c99488de678963e4ea13, type: 3}
   m_Name: SimplePlayerAttack 1
   m_EditorClassIdentifier: Assembly-CSharp::AttackActionBase
-  endLagFrames: 10
+  endLagFrames: 100
   activeFrames: 3
   startupFrames: 3
   damage: 4

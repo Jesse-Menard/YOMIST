@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73aeb71d1aa7cd4899cf68f5bf1a443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RealtimeCharacterMover
-  acceleration: 8
+  acceleration: 20
   maxSpeed: 4
   jumpHeight: 12.5
   groundCollider: {fileID: 561786608174406835}

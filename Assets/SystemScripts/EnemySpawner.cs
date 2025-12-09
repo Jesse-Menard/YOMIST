@@ -8,6 +8,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     float spawnDelay = 2.0f;
     [SerializeField]
+    int spawnQuantity = 1;
+    [SerializeField]
     float spawnDelayDecrement = 0.95f;
     List<Vector3> spawnerPositions = new List<Vector3>();
 
@@ -25,7 +27,10 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnerRoutine()
     {
-        SpawnEnemy();
+        for (int i = 0; i < spawnQuantity; i++)
+        {
+            SpawnEnemy();
+        }
 
         yield return new WaitForSeconds(spawnDelay);
 

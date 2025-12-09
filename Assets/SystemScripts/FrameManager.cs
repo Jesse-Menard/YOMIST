@@ -6,7 +6,15 @@ using UnityEngine;
 public class FrameManager : MonoBehaviour
 {    
     public static event EventHandler FrameTick;
-    int framesToSkip = 0;
+    [SerializeField]
+    private int framesToSkip = 500;
+    public bool IsPaused
+    {
+        get
+        {
+            return framesToSkip <= 0;
+        }
+    }
 
     public static FrameManager Instance;
 
@@ -22,12 +30,19 @@ public class FrameManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        ActionManager.playerActionExecuted += OnPlayerActionConfirm;
+    }
+
     private void FixedUpdate()
     {
+        Debug.Log("Frames to skip: " + framesToSkip);
         if (framesToSkip > 0)
         {
             framesToSkip--;
             FrameTick.Invoke(this, EventArgs.Empty);
+            Debug.Log("Frame Ticked, " + framesToSkip + " frames to go");
         }
         else
         {
@@ -53,5 +68,10 @@ public class FrameManager : MonoBehaviour
     public void ResetTimeScale()
     {
         Time.timeScale = 1.0f;
+    }
+
+    private void OnPlayerActionConfirm(object sender, EventArgs e)
+    {
+        ResetTimeScale();
     }
 }

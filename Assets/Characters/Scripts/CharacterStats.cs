@@ -18,6 +18,13 @@ public class CharacterStats : MonoBehaviour
         FrameManager.FrameTick += TickCountersDownEvent;
     }
 
+    private void Start()
+    {
+        if (CompareTag("Player"))
+        {
+            PlayerManager.Instance.activePlayerStats = this;
+        }
+    }
     private void FixedUpdate()
     {
         TickCountersDown();
@@ -67,6 +74,11 @@ public class CharacterStats : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().color = Color.white;
         }
+    }
+
+    public int GetTotalFrames()
+    {
+        return endLagFrames + hitStunFrames;
     }
 
     public bool IsInHitStun()

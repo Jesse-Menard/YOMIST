@@ -26,7 +26,10 @@ public class RealtimePlayerInput : MonoBehaviour
         if (InHitStun())
             return;
 
-        gameObject.GetComponent<RealtimeCharacterMover>().MoveTo(moveInput.ReadValue<float>());
+        if (moveInput.ReadValue<float>() != 0)
+        {
+            gameObject.GetComponent<RealtimeCharacterMover>().MoveTo(moveInput.ReadValue<float>());
+        }
     }
 
     void CallJump(InputAction.CallbackContext context)

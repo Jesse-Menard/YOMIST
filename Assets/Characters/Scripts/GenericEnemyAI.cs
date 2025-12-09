@@ -12,7 +12,7 @@ public class GenericEnemyAI : MonoBehaviour
 
     void Update()
     {
-        if (GetComponent<CharacterStats>().IsInHitStun())
+        if (GetComponent<CharacterStats>().IsInHitStun() || FrameManager.Instance.IsPaused)
             return;
 
         Move();

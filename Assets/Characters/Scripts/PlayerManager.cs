@@ -17,11 +17,4 @@ public class PlayerManager : MonoBehaviour
 
         Instance = this;
     }
-
-    private void Start()
-    {
-        // To be replaced with multiplayer functionality
-        activePlayerStats = FindFirstObjectByType<CharacterStats>();
-    }
-
 }
