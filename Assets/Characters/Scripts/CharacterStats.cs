@@ -10,7 +10,8 @@ public class CharacterStats : MonoBehaviour
     int endLagFrames = 0;
 
     [SerializeField]
-    AttackBase attack;
+    AttackActionBase attack;
+
     private void Awake()
     {
         maxHealth = health;

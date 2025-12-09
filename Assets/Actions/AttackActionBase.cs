@@ -3,7 +3,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "SimplePlayerAttack", menuName = "Attack Data/SimplePlayerAttack")]
 [Serializable]
-public class AttackBase : ActionBaseClass
+public class AttackActionBase : ActionBaseClass
 {
     [SerializeField]
     float damage;
@@ -18,7 +18,7 @@ public class AttackBase : ActionBaseClass
     [SerializeField]
     Vector3 hitBoxOffset;
 
-    public void Attack(CharacterStats owner)
+    public override void InvokeAction(CharacterStats owner)
     {
         Debug.Log("ATTACK!");
 
@@ -55,10 +55,5 @@ public class AttackBase : ActionBaseClass
     {
         Vector3 size = new Vector3(hitBoxSize.x, hitBoxSize.y, 1.0f);
         return (hitBoxOffset, size);
-    }
-
-    public override void InvokeAction()
-    {
-        throw new NotImplementedException();
     }
 }
