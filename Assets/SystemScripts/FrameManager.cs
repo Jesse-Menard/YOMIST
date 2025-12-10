@@ -1,6 +1,4 @@
 using System;
-using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class FrameManager : MonoBehaviour
