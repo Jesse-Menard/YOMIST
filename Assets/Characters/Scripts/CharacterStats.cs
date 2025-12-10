@@ -55,7 +55,7 @@ public class CharacterStats : MonoBehaviour
 
             if (CompareTag("Player"))
             {
-                FrameManager.Instance.SetFrames(hitStunFrames);
+                FrameManager.Instance.SetFrames(hitStunFrames, true);
             }
 
             endLagFrames = 0;
@@ -76,7 +76,6 @@ public class CharacterStats : MonoBehaviour
         }
         if (hitStunFrames > 0)
         {
-            Debug.Log("Hitstun: " + hitStunFrames);
             hitStunFrames--;
             GetComponent<SpriteRenderer>().color = new Color(0f, .5f, 1f, 1f);
         }

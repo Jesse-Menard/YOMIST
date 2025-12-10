@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c89f7c3afaf6c99488de678963e4ea13, type: 3}
-  m_Name: EmptyAttack
+  m_Name: Heavy Attack
   m_EditorClassIdentifier: Assembly-CSharp::AttackActionBase
-  actionIcon: {fileID: 0}
-  endLagFrames: 0
-  activeFrames: 0
-  startupFrames: 0
+  actionIcon: {fileID: 21300000, guid: 5e954642d2374c543b2e114a3aa85d0e, type: 3}
+  endLagFrames: 55
+  activeFrames: 3
+  startupFrames: 3
   speedMultiplier: 0
   movementDirection: {x: 0, y: 0}
   isImpulse: 0
-  damage: 0
-  hitStunFrames: 0
-  knockbackAngle: {x: 0, y: 0}
-  knockbackForce: 0
-  hitBoxSize: {x: 0, y: 0}
-  hitBoxOffset: {x: 0, y: 0, z: 0}
+  damage: 10
+  hitStunFrames: 70
+  knockbackAngle: {x: 1, y: 1}
+  knockbackForce: 10
+  hitBoxSize: {x: 2.5, y: 1.5}
+  hitBoxOffset: {x: 1.5, y: 0.4, z: 0}

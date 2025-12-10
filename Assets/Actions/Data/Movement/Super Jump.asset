@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2a1b5d17c4ea5341b810ff97398eec0, type: 3}
-  m_Name: SuperJump
+  m_Name: Super Jump
   m_EditorClassIdentifier: Assembly-CSharp::MoveActionBase
   actionIcon: {fileID: 21300000, guid: 21bfb25d03e382044b89365a9559404c, type: 3}
   endLagFrames: 17

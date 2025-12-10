@@ -39,7 +39,6 @@ public class FrameManager : MonoBehaviour
     {
         if (framesToSkip > 0)
         {
-            Debug.LogWarning("Frames To Skip: " + framesToSkip);
             framesToSkip--;
             FrameTick.Invoke(this, EventArgs.Empty);
         }

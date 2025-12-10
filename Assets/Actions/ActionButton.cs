@@ -31,6 +31,6 @@ public class ActionButton : MonoBehaviour
             return;
         }
 
-        ActionManager.Instance.actionToExecute = action;
+        ActionManager.Instance.UpdateSelectedAction(action);
     }
 }

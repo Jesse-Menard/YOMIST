@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,6 +10,8 @@ public class ActionManager : MonoBehaviour
     public static event EventHandler playerActionExecuted;
     public ActionBaseClass actionToExecute;
 
+    [SerializeField]
+    TextMeshProUGUI actionTitleText;
     
     bool flipToLeft;
 
@@ -24,6 +27,15 @@ public class ActionManager : MonoBehaviour
             SetFlipToLeft(value);
         }
     }
+    bool GetFLipToLeft()
+    {
+        return flipToLeft;
+    }
+    void SetFlipToLeft(bool newBool)
+    {
+        flipToLeft = newBool;
+    }
+
 
     private void Awake()
     {
@@ -37,6 +49,10 @@ public class ActionManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        UpdateSelectedAction(actionToExecute);
+    }
     private void OnDrawGizmos()
     {
         if (FrameManager.Instance != null && FrameManager.Instance.IsPaused)
@@ -57,6 +73,9 @@ public class ActionManager : MonoBehaviour
 
     public void InvokeAction()
     {
+        if (!FrameManager.Instance.IsPaused)
+            return;
+
         actionToExecute.InvokeAction(PlayerManager.Instance.activePlayerStats);
         
         playerActionExecuted.Invoke(this, EventArgs.Empty);
@@ -64,12 +83,9 @@ public class ActionManager : MonoBehaviour
         FrameManager.Instance.AddFrames(PlayerManager.Instance.activePlayerStats.GetTotalFrames());
     }
 
-    bool GetFLipToLeft()
+    public void UpdateSelectedAction(ActionBaseClass action)
     {
-        return flipToLeft;
-    }
-    void SetFlipToLeft(bool newBool)
-    {
-        flipToLeft = newBool;
+        actionToExecute = action;
+        actionTitleText.text = action.name + " Selected";
     }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c89f7c3afaf6c99488de678963e4ea13, type: 3}
-  m_Name: NormalAttack
+  m_Name: Normal Attack
   m_EditorClassIdentifier: Assembly-CSharp::AttackActionBase
   actionIcon: {fileID: 21300000, guid: 3b4e91a959ffb644892b0fe45e38eb23, type: 3}
   endLagFrames: 12
