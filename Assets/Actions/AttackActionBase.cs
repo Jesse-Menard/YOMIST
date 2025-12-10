@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SimplePlayerAttack", menuName = "Attack Data/SimplePlayerAttack")]
+[CreateAssetMenu(fileName = "SimpleAttackBase", menuName = "Action Data/Attacks/SimpleAttackBase")]
 [Serializable]
-public class AttackActionBase : ActionBaseClass
+public class AttackActionBase : MoveActionBase
 {
+    [Header("Attack Data")]
     [SerializeField]
     float damage;
     [SerializeField]
@@ -13,6 +14,8 @@ public class AttackActionBase : ActionBaseClass
     Vector2 knockbackAngle;
     [SerializeField]
     float knockbackForce;
+
+    [Header("Hitbox")]
     [SerializeField]
     Vector2 hitBoxSize;
     [SerializeField]
@@ -20,6 +23,7 @@ public class AttackActionBase : ActionBaseClass
 
     public override void InvokeAction(CharacterStats owner)
     {
+        base.InvokeAction(owner);
         Debug.Log("ATTACK!");
 
         Vector3 position = hitBoxOffset + owner.transform.position;

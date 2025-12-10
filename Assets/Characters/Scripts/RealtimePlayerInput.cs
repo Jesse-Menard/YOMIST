@@ -12,13 +12,13 @@ public class RealtimePlayerInput : MonoBehaviour
 
     void Awake()
     {
-        moveInput = inputActions.FindAction("Move");
-
-        jumpInput = inputActions.FindAction("Jump");
-        jumpInput.performed += CallJump;
-
-        attackInput = inputActions.FindAction("Attack");
-        attackInput.performed += CallAttack;
+        //  moveInput = inputActions.FindAction("Move");
+        //  
+        //  jumpInput = inputActions.FindAction("Jump");
+        //  jumpInput.performed += CallJump;
+        //  
+        //  attackInput = inputActions.FindAction("Attack");
+        //  attackInput.performed += CallAttack;
     }
 
     void Update()

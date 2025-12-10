@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2647889051716020513
 RectTransform:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3b4e91a959ffb644892b0fe45e38eb23, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -133,4 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b085b1317a4c2454caa67101e7690cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActionButton
-  action: {fileID: 11400000, guid: 15181c59e1039794192d880140bc5eee, type: 2}
+  action: {fileID: 11400000, guid: 8f2d914e0e3000c4eb139f04238c8829, type: 2}

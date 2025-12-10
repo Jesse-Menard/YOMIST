@@ -1,7 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public abstract class ActionBaseClass : ScriptableObject
+[CreateAssetMenu(fileName = "EmptyActionBase", menuName = "Action Data/Generic/EmptyAction")]
+public class ActionBaseClass : ScriptableObject
 {
+    [Header("Icon")]
+    [SerializeField]
+    public Sprite actionIcon;
+
+    [Header("Frame Data")]
     [SerializeField]
     protected int endLagFrames;
     [SerializeField]
@@ -9,5 +16,13 @@ public abstract class ActionBaseClass : ScriptableObject
     [SerializeField]
     protected int startupFrames;
 
-    public abstract void InvokeAction(CharacterStats owner);
+    public virtual void InvokeAction(CharacterStats owner)
+    {
+        owner.AddEndLag(endLagFrames);
+    }
+
+    public void UpdateButtonImage(Image imageToChange)
+    {
+        imageToChange.sprite = actionIcon;
+    }
 }

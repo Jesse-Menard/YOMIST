@@ -7,6 +7,18 @@ public class ActionButton : MonoBehaviour
     [SerializeField]
     public ActionBaseClass action;
 
+    private void OnValidate()
+    {
+        if (action.actionIcon == null)
+        {
+            gameObject.SetActive(false);
+            //
+            return;
+        }
+
+        action.UpdateButtonImage(GetComponent<Image>());   
+    }
+
     void Start()
     {
         GetComponent<Button>().onClick.AddListener(ActionSelected);
