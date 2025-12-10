@@ -18,16 +18,17 @@ public class CharacterStats : MonoBehaviour
         FrameManager.FrameTick += TickCountersDownEvent;
     }
 
+    private void OnDestroy()
+    {
+        FrameManager.FrameTick -= TickCountersDownEvent;
+    }
+
     private void Start()
     {
         if (CompareTag("Player"))
         {
             PlayerManager.Instance.activePlayerStats = this;
         }
-    }
-    private void FixedUpdate()
-    {
-        TickCountersDown();
     }
 
     public void Damage(float damage)
@@ -61,6 +62,7 @@ public class CharacterStats : MonoBehaviour
     {
         if (endLagFrames > 0)
         {
+            Debug.Log("Endlag: " + endLagFrames);
             endLagFrames--;
             GetComponent<SpriteRenderer>().color = Color.orange;
         }

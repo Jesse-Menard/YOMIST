@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +20,7 @@ public class ActionBaseClass : ScriptableObject
     public virtual void InvokeAction(CharacterStats owner)
     {
         owner.AddEndLag(endLagFrames);
-        owner.GetComponent<SpriteRenderer>().flipX = ActionManager.Instance.flipToLeft;
+        owner.GetComponent<SpriteRenderer>().flipX = ActionManager.Instance.FlipToLeft;
     }
 
     public void UpdateButtonImage(Image imageToChange)

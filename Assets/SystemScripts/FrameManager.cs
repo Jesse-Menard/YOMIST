@@ -37,7 +37,6 @@ public class FrameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("Frames to skip: " + framesToSkip);
         if (framesToSkip > 0)
         {
             framesToSkip--;

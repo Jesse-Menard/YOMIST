@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Run
   m_EditorClassIdentifier: Assembly-CSharp::MoveActionBase
   actionIcon: {fileID: 21300000, guid: 2a75c867ecdc3f745bcb9cd4730179e0, type: 3}
-  endLagFrames: 20
+  endLagFrames: 23
   activeFrames: 0
   startupFrames: 0
-  speedMultiplier: 20
+  speedMultiplier: 12
   movementDirection: {x: 1, y: 0}
   isImpulse: 1

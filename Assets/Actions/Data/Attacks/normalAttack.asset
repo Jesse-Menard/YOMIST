@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c89f7c3afaf6c99488de678963e4ea13, type: 3}
-  m_Name: normalAttack
+  m_Name: NormalAttack
   m_EditorClassIdentifier: Assembly-CSharp::AttackActionBase
   actionIcon: {fileID: 21300000, guid: 3b4e91a959ffb644892b0fe45e38eb23, type: 3}
-  endLagFrames: 20
+  endLagFrames: 12
   activeFrames: 3
   startupFrames: 3
   speedMultiplier: 0
   movementDirection: {x: 0, y: 0}
   isImpulse: 0
-  damage: 4
-  hitStunFrames: 20
+  damage: 2
+  hitStunFrames: 15
   knockbackAngle: {x: 1, y: 1}
-  knockbackForce: 10
-  hitBoxSize: {x: 3, y: 3}
-  hitBoxOffset: {x: 0, y: 0, z: 0}
+  knockbackForce: 3
+  hitBoxSize: {x: 1, y: 1}
+  hitBoxOffset: {x: 0.8, y: 0.4, z: 0}

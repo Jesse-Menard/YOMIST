@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Sprint
   m_EditorClassIdentifier: Assembly-CSharp::MoveActionBase
   actionIcon: {fileID: 21300000, guid: bd0dc9193342edb489300cdfd78f81aa, type: 3}
-  endLagFrames: 40
+  endLagFrames: 30
   activeFrames: 0
   startupFrames: 0
-  speedMultiplier: 35
+  speedMultiplier: 16
   movementDirection: {x: 1, y: 0}
   isImpulse: 1

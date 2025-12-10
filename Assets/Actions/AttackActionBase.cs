@@ -31,7 +31,7 @@ public class AttackActionBase : MoveActionBase
         Vector2 modifiedKnockbackAngle = knockbackAngle;
 
         // Flips X. Feels jank but efficient enough for now
-        if (ActionManager.Instance.flipToLeft)
+        if (ActionManager.Instance.FlipToLeft)
         {
             position.x -= hitBoxOffset.x * 2;
             modifiedKnockbackAngle = new Vector2(knockbackAngle.x * -1, knockbackAngle.y);

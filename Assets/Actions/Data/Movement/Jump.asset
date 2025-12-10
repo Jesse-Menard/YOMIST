@@ -16,6 +16,6 @@ MonoBehaviour:
   endLagFrames: 10
   activeFrames: 0
   startupFrames: 0
-  speedMultiplier: 15
+  speedMultiplier: 12
   movementDirection: {x: 0, y: 1}
   isImpulse: 1

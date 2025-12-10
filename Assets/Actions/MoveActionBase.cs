@@ -23,8 +23,8 @@ public class MoveActionBase : ActionBaseClass
 
         Vector2 newMoveDir = movementDirection.normalized;
 
-        if (ActionManager.Instance.flipToLeft)
-            newMoveDir *= Vector2.left;
+        if (ActionManager.Instance.FlipToLeft)
+            newMoveDir.x *= -1.0f;
 
         ownerRB.AddForce(newMoveDir * speedMultiplier, forceMode);
     }

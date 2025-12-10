@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SuperJump
   m_EditorClassIdentifier: Assembly-CSharp::MoveActionBase
   actionIcon: {fileID: 21300000, guid: 21bfb25d03e382044b89365a9559404c, type: 3}
-  endLagFrames: 22
+  endLagFrames: 17
   activeFrames: 0
   startupFrames: 0
-  speedMultiplier: 35
+  speedMultiplier: 19
   movementDirection: {x: 0, y: 1}
   isImpulse: 1

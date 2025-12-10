@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Walk
   m_EditorClassIdentifier: Assembly-CSharp::MoveActionBase
   actionIcon: {fileID: 21300000, guid: 90b43a452309ab14bb9f02b10b6403f3, type: 3}
-  endLagFrames: 10
+  endLagFrames: 15
   activeFrames: 0
   startupFrames: 0
-  speedMultiplier: 10
+  speedMultiplier: 5
   movementDirection: {x: 1, y: 0}
   isImpulse: 1
