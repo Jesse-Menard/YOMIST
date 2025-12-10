@@ -15,10 +15,17 @@ public class MoveActionBase : ActionBaseClass
     public override void InvokeAction(CharacterStats owner)
     {
         base.InvokeAction(owner);
+        if (speedMultiplier == 0)
+            return;
 
         Rigidbody2D ownerRB = owner.GetComponent<Rigidbody2D>();
         ForceMode2D forceMode = isImpulse ? ForceMode2D.Impulse : ForceMode2D.Force;
 
-        ownerRB.AddForce(movementDirection.normalized * speedMultiplier, forceMode);
+        Vector2 newMoveDir = movementDirection.normalized;
+
+        if (ActionManager.Instance.flipToLeft)
+            newMoveDir *= Vector2.left;
+
+        ownerRB.AddForce(newMoveDir * speedMultiplier, forceMode);
     }
 }

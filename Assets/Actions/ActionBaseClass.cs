@@ -19,6 +19,7 @@ public class ActionBaseClass : ScriptableObject
     public virtual void InvokeAction(CharacterStats owner)
     {
         owner.AddEndLag(endLagFrames);
+        owner.GetComponent<SpriteRenderer>().flipX = ActionManager.Instance.flipToLeft;
     }
 
     public void UpdateButtonImage(Image imageToChange)

@@ -12,7 +12,6 @@ public class ActionButton : MonoBehaviour
         if (action.actionIcon == null)
         {
             gameObject.SetActive(false);
-            //
             return;
         }
 

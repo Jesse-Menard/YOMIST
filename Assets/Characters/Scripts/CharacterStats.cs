@@ -103,6 +103,9 @@ public class CharacterStats : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (CompareTag("Player"))
+            return;
+
         Gizmos.color = Color.red;
 
         Vector3 modifiedOffset = attack.GetGizmoData().offset;
