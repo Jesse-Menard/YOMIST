@@ -39,9 +39,9 @@ public class FrameManager : MonoBehaviour
     {
         if (framesToSkip > 0)
         {
+            Debug.LogWarning("Frames To Skip: " + framesToSkip);
             framesToSkip--;
             FrameTick.Invoke(this, EventArgs.Empty);
-            Debug.Log("Frame Ticked, " + framesToSkip + " frames to go");
         }
         else
         {
@@ -63,7 +63,7 @@ public class FrameManager : MonoBehaviour
         framesToSkip += frames;
         ResetTimeScale();
     }
-
+    
     public void ResetTimeScale()
     {
         Time.timeScale = 1.0f;

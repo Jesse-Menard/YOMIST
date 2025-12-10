@@ -24,7 +24,6 @@ public class AttackActionBase : MoveActionBase
     public override void InvokeAction(CharacterStats owner)
     {
         base.InvokeAction(owner);
-        Debug.Log("ATTACK!");
 
         Vector3 position = hitBoxOffset + owner.transform.position;
 

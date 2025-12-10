@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
   health: 30
-  attack: {fileID: 11400000, guid: 8f2d914e0e3000c4eb139f04238c8829, type: 2}
+  attack: {fileID: 11400000, guid: 8b640160613a5de4186da33576116821, type: 2}
 --- !u!114 &2207047998170737335
 MonoBehaviour:
   m_ObjectHideFlags: 0
