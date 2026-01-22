@@ -4,6 +4,8 @@ public class GenericEnemyAI : MonoBehaviour
 {
     GameObject player;
     float jumpCooldown = 0;
+    public float HorizontalAttackDistance = 1.8f;
+    public float VerticalAttackDistance = 1.0f;
 
     private void Awake()
     {
@@ -40,7 +42,7 @@ public class GenericEnemyAI : MonoBehaviour
             return;
         }
         
-        if (player.transform.position.y > transform.position.y)
+        if (player.transform.position.y > transform.position.y + 1.0f)
         {
             GetComponent<RealtimeCharacterMover>().Jump();
             jumpCooldown = 0.2f;
@@ -54,7 +56,7 @@ public class GenericEnemyAI : MonoBehaviour
 
         Vector3 deltaPos = player.transform.position - transform.position;
         float distance = deltaPos.magnitude;
-        if (distance < 3.0f)
+        if (Mathf.Abs(deltaPos.x) < HorizontalAttackDistance && Mathf.Abs(deltaPos.y) < VerticalAttackDistance)
         {
             GetComponent<CharacterStats>().CallOnlyAttack();
         }
