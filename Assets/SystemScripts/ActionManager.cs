@@ -75,6 +75,8 @@ public class ActionManager : MonoBehaviour
         if (!FrameManager.Instance.IsPaused)
             return;
 
+        PlayerManager.Instance.activePlayerStats.GetComponent<RealtimeCharacterMover>().ResumeMomentum();
+
         actionToExecute.InvokeAction(PlayerManager.Instance.activePlayerStats);
         
         playerActionExecuted.Invoke(this, EventArgs.Empty);

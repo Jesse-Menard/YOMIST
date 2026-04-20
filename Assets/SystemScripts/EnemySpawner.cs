@@ -11,6 +11,9 @@ public class EnemySpawner : MonoBehaviour
     int spawnQuantity = 1;
     [SerializeField]
     float spawnDelayDecrement = 0.95f;
+
+    float timeWhileUnpaused = 0.0f;
+
     List<Vector3> spawnerPositions = new List<Vector3>();
 
     private void Start()
@@ -25,6 +28,21 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnerRoutine());
     }
 
+    private void Awake()
+    {
+        FrameManager.FrameTick += IncementSpawnDelay;
+    }
+
+    private void OnDestroy()
+    {
+        FrameManager.FrameTick -= IncementSpawnDelay;
+    }
+
+    void IncementSpawnDelay(object sender, System.EventArgs e)
+    {
+        timeWhileUnpaused += Time.deltaTime;
+    }
+
     IEnumerator SpawnerRoutine()
     {
         for (int i = 0; i < spawnQuantity; i++)
@@ -32,7 +50,7 @@ public class EnemySpawner : MonoBehaviour
             SpawnEnemy();
         }
 
-        yield return new WaitForSeconds(spawnDelay);
+        yield return new WaitUntil(() => timeWhileUnpaused >= spawnDelay);
 
 
         if (spawnDelay > 1.0f / 4.0f)
@@ -40,6 +58,7 @@ public class EnemySpawner : MonoBehaviour
             spawnDelay *= spawnDelayDecrement;
         }
 
+        timeWhileUnpaused = 0.0f;
         StartCoroutine(SpawnerRoutine());
     }
 

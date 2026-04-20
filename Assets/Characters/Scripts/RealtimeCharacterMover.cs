@@ -15,9 +15,28 @@ public class RealtimeCharacterMover : MonoBehaviour
     [SerializeField]
     BoxCollider2D groundCollider;
 
+    public Vector3 StoredMomentum = new Vector3(0,0,0);
+    bool isPaused = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    public void PauseMomentum()
+    {
+        if (isPaused) return;
+        StoredMomentum = rb.linearVelocity;
+        rb.bodyType = RigidbodyType2D.Static;
+        isPaused = true;
+    }
+
+    public void ResumeMomentum()
+    {
+        if (!isPaused) return;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.linearVelocity = StoredMomentum;
+        isPaused = false;
     }
 
     public void MoveTo(float xDirection)

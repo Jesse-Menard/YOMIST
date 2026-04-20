@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public Queue<GameObject> enemies = new Queue<GameObject>();
+    public List<GameObject> activeEnemies = new List<GameObject>();
     GameObject enemyPrefab;
 
     int enemyCount = 0;
@@ -17,7 +18,7 @@ public class EnemyManager : MonoBehaviour
     void ResetEnemyForSpawn(GameObject enemy)
     {
         enemy.GetComponent<BoxCollider2D>().enabled = true;
-        enemy.GetComponent<CharacterStats>().ResetHealth();
+        enemy.GetComponent<CharacterStats>().ResetValuesForRespawn();
         enemy.SetActive(true);
     }
 
@@ -54,6 +55,7 @@ public class EnemyManager : MonoBehaviour
 
         GameObject enemy = enemies.Dequeue();
         ResetEnemyForSpawn(enemy);
+        activeEnemies.Add(enemy);
 
         return enemy;
     }

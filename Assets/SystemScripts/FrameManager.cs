@@ -42,7 +42,14 @@ public class FrameManager : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 0;
+            foreach(GameObject enemy in FindAnyObjectByType<EnemyManager>().activeEnemies)
+            {
+                enemy.GetComponent<RealtimeCharacterMover>().PauseMomentum();
+            }
+
+            PlayerManager.Instance.activePlayerStats.GetComponent<RealtimeCharacterMover>().PauseMomentum();
+
+            //Time.timeScale = 0;
         } 
     }
 
@@ -64,6 +71,10 @@ public class FrameManager : MonoBehaviour
     public void ResetTimeScale()
     {
         Time.timeScale = 1.0f;
+        foreach (GameObject enemy in FindAnyObjectByType<EnemyManager>().activeEnemies)
+        {
+            enemy.GetComponent<RealtimeCharacterMover>().ResumeMomentum();
+        }
     }
 
     private void OnPlayerActionConfirm(object sender, EventArgs e)

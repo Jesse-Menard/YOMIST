@@ -138,11 +138,14 @@ public class CharacterStats : MonoBehaviour
         else
         {
             FindFirstObjectByType<EnemyManager>().AddEnemyToQueue(gameObject);
+            FindFirstObjectByType<EnemyManager>().activeEnemies.Remove(gameObject);
         }
     }
 
-    public void ResetHealth()
+    public void ResetValuesForRespawn()
     {
+        hitStunFrames = 0;
+        endLagFrames = 0;
         health = maxHealth;
     }
 }
