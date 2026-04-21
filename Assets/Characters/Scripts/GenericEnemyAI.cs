@@ -2,20 +2,23 @@ using UnityEngine;
 
 public class GenericEnemyAI : MonoBehaviour
 {
-    GameObject player;
+    public GameObject player;
     float jumpCooldown = 0;
     public float HorizontalAttackDistance = 1.8f;
     public float VerticalAttackDistance = 1.0f;
 
     private void Awake()
     {
-        player = FindFirstObjectByType<RealtimePlayerInput>().gameObject;
+        player = PlayerManager.Instance.activePlayerStats.gameObject;
     }
 
     void Update()
     {
         if (GetComponent<CharacterStats>().IsInHitStun() || FrameManager.Instance.IsPaused)
-            return;
+        {
+            if (!CompareTag("Ghost"))
+                return;
+        }
 
         Move();
         Jump();

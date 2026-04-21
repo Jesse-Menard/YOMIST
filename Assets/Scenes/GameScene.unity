@@ -1109,12 +1109,29 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7849866078361893034, guid: 83bab5f9d41c0234295296b406d64478, type: 3}
   m_PrefabInstance: {fileID: 6821166324551874586}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1795519692}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fc849f257ae7664a9b0d1327394e64b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
+--- !u!1 &1795519692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8073526791387071800, guid: 83bab5f9d41c0234295296b406d64478, type: 3}
+  m_PrefabInstance: {fileID: 6821166324551874586}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1795519700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795519692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8003d68b9492d64488a4adfdf6363fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostSpawner
 --- !u!1 &2046149698
 GameObject:
   m_ObjectHideFlags: 0
@@ -11426,7 +11443,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8073526791387071800, guid: 83bab5f9d41c0234295296b406d64478, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1795519700}
   m_SourcePrefab: {fileID: 100100000, guid: 83bab5f9d41c0234295296b406d64478, type: 3}
 --- !u!1001 &8021480993906748726
 PrefabInstance:

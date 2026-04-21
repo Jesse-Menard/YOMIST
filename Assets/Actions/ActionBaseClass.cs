@@ -8,6 +8,11 @@ public class ActionBaseClass : ScriptableObject
     [SerializeField]
     public Sprite actionIcon;
 
+    public int actionTotalFrames
+    {
+        get { return endLagFrames; }// + activeFrames + startupFrames; }
+    }
+
     [Header("Frame Data")]
     [SerializeField]
     protected int endLagFrames;
@@ -16,9 +21,11 @@ public class ActionBaseClass : ScriptableObject
     [SerializeField]
     protected int startupFrames;
 
-    public virtual void InvokeAction(CharacterStats owner)
+    public virtual void InvokeAction(CharacterStats owner, bool keepTimePaused = false)
     {
-        owner.AddEndLag(endLagFrames);
+        if (!keepTimePaused)
+            owner.AddEndLag(endLagFrames);
+    
         owner.GetComponent<SpriteRenderer>().flipX = ActionManager.Instance.FlipToLeft;
     }
 

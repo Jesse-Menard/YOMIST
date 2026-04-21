@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "SimpleAttackBase", menuName = "Action Data/Attacks/SimpleAttackBase")]
 [Serializable]
@@ -21,9 +22,9 @@ public class AttackActionBase : MoveActionBase
     [SerializeField]
     Vector3 hitBoxOffset;
 
-    public override void InvokeAction(CharacterStats owner)
+    public override void InvokeAction(CharacterStats owner, bool keepTimePaused = true)
     {
-        base.InvokeAction(owner);
+        base.InvokeAction(owner, keepTimePaused);
 
         Vector3 position = hitBoxOffset + owner.transform.position;
 
@@ -36,8 +37,17 @@ public class AttackActionBase : MoveActionBase
             modifiedKnockbackAngle = new Vector2(knockbackAngle.x * -1, knockbackAngle.y);
         }
 
-        bool isPlayer = owner.CompareTag("Player");
-        LayerMask attackMask = isPlayer ? LayerMask.GetMask("Enemy") : LayerMask.GetMask("Player");
+        LayerMask attackMask;
+
+        if (owner.CompareTag("Ghost"))
+        {
+            attackMask = owner.gameObject.layer == LayerMask.NameToLayer("PlayerGhost") ? LayerMask.GetMask("EnemyGhost") : LayerMask.GetMask("PlayerGhost");
+        }
+        else
+        {
+            bool isPlayer = owner.CompareTag("Player");
+            attackMask = isPlayer ? LayerMask.GetMask("Enemy") : LayerMask.GetMask("Player");
+        }        
         
         Collider2D[] hitTargets = Physics2D.OverlapBoxAll(position, hitBoxSize, 0, attackMask);
 

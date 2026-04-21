@@ -12,9 +12,9 @@ public class MoveActionBase : ActionBaseClass
     [SerializeField]
     bool isImpulse = false;
 
-    public override void InvokeAction(CharacterStats owner)
+    public override void InvokeAction(CharacterStats owner, bool keepTimePaused = true)
     {
-        base.InvokeAction(owner);
+        base.InvokeAction(owner, keepTimePaused);
         if (speedMultiplier == 0)
             return;
 

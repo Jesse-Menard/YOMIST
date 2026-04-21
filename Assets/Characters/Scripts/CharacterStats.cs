@@ -25,10 +25,20 @@ public class CharacterStats : MonoBehaviour
 
     private void Start()
     {
-        if (CompareTag("Player"))
+        if (CompareTag("Player") && PlayerManager.Instance.activePlayerStats == null)
         {
             PlayerManager.Instance.activePlayerStats = this;
         }
+    }
+
+    public void SetHealth(float value)
+    {
+        health = value;
+    }
+    
+    public float GetHealth()
+    {
+        return health;
     }
 
     public void Damage(float damage)
@@ -72,17 +82,22 @@ public class CharacterStats : MonoBehaviour
         if (endLagFrames > 0)
         {
             endLagFrames--;
-            GetComponent<SpriteRenderer>().color = Color.orange;
+
+            if (!CompareTag("Ghost"))
+                GetComponent<SpriteRenderer>().color = Color.orange;
         }
         if (hitStunFrames > 0)
         {
             hitStunFrames--;
-            GetComponent<SpriteRenderer>().color = new Color(0f, .5f, 1f, 1f);
+
+            if (!CompareTag("Ghost"))
+                GetComponent<SpriteRenderer>().color = new Color(0f, .5f, 1f, 1f);
         }
         
         if (endLagFrames <= 0 && hitStunFrames <= 0)
         {
-            GetComponent<SpriteRenderer>().color = Color.white;
+            if (!CompareTag("Ghost"))
+                GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
 

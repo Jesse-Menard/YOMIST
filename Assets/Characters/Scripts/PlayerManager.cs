@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public CharacterStats activePlayerStats;
+    public CharacterStats activePlayerStats = null;
 
     public static PlayerManager Instance;
 

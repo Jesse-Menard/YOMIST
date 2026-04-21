@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1960544018727924053}
   - component: {fileID: 7201434917103027531}
   - component: {fileID: 2207047998170737335}
+  - component: {fileID: -2883019570330808020}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -227,6 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bca99625074a246b4e289df55aa6a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GenericEnemyAI
+  HorizontalAttackDistance: 1.8
+  VerticalAttackDistance: 1
 --- !u!114 &7201434917103027531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,3 +260,16 @@ MonoBehaviour:
   maxSpeed: 4
   jumpHeight: 12.5
   groundCollider: {fileID: 561786608174406835}
+  StoredMomentum: {x: 0, y: 0, z: 0}
+--- !u!114 &-2883019570330808020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602703790894508958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8003d68b9492d64488a4adfdf6363fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostSpawner

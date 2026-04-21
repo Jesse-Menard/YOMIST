@@ -75,6 +75,14 @@ public class ActionManager : MonoBehaviour
         if (!FrameManager.Instance.IsPaused)
             return;
 
+        PlayerManager.Instance.activePlayerStats.GetComponent<GhostSpawner>().HideGhosts();
+
+        foreach (GameObject enemy in FindAnyObjectByType<EnemyManager>().activeEnemies)
+        {
+            enemy.GetComponent<GhostSpawner>().HideGhosts();
+        }
+
+
         PlayerManager.Instance.activePlayerStats.GetComponent<RealtimeCharacterMover>().ResumeMomentum();
 
         actionToExecute.InvokeAction(PlayerManager.Instance.activePlayerStats);
@@ -88,5 +96,12 @@ public class ActionManager : MonoBehaviour
     {
         actionToExecute = action;
         actionTitleText.text = action.name + " Selected";
+
+        PlayerManager.Instance.activePlayerStats.GetComponent<GhostSpawner>().SpawnGhost();
+
+        foreach (GameObject enemy in FindAnyObjectByType<EnemyManager>().activeEnemies)
+        {
+            enemy.GetComponent<GhostSpawner>().SpawnGhost();
+        }
     }
 }
