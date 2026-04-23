@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.U2D;
 
 public class GhostSpawner : MonoBehaviour
 {
