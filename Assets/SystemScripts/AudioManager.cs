@@ -138,6 +138,8 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMusic(int musicIndex)
     {
+        channels[0].Stop();
+
         channels[0].clip = sounds[musicIndex];
         channels[0].loop = true;
 

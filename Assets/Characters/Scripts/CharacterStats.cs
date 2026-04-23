@@ -153,7 +153,8 @@ public class CharacterStats : MonoBehaviour
         if (CompareTag("Player"))
         {
             /// TODO: Replace with proper GameOver screen
-            Application.Quit();
+            AudioManager.Instance.PlayMusic(0);
+            GameManager.Instance.GetComponent<SceneCalling>().LoadSceneByName("GameOver");
         }
         else
         {
