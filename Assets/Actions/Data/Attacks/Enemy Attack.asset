@@ -19,8 +19,8 @@ MonoBehaviour:
   speedMultiplier: 0
   movementDirection: {x: 0, y: 0}
   isImpulse: 0
-  damage: 2
-  hitStunFrames: 15
+  damage: 3
+  hitStunFrames: 11
   knockbackAngle: {x: 1, y: 1}
   knockbackForce: 3
   hitBoxSize: {x: 1, y: 1}

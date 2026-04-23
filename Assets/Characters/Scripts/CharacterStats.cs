@@ -40,6 +40,11 @@ public class CharacterStats : MonoBehaviour
     {
         return health;
     }
+    
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
 
     public void Damage(float damage)
     {
